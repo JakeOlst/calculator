@@ -14,6 +14,7 @@ class Calculator
 {
     // Static reference of Calculator - allows only one to be used.
     private static Calculator calculator;
+    private String calcOptions = (" ADD \n SUBTRACT \n MULTIPLY \n DIVIDE");
     
     // private constructor - 'lazy implementation' to prevent instantiation from outside of class (true singleton).
     private Calculator()
@@ -32,81 +33,102 @@ class Calculator
     }
     
     // 'Main' part of the program - begins the calculator and its functions.
-    public int start()
+    public void start()
     {
+        boolean running = true;
         Scanner optionScanner = new Scanner(System.in);
-        int output = 0;
+        Scanner numScanner = new Scanner(System.in);
+        double sessionSum = 0;
         
-        // Output message for the user to input calculator function choice
-        // Usage: 'ADD' or 'SUBTRACT' or 'MULTIPLY' or 'DIVIDE'.
-        System.out.println("Please select a Calculator Function from the list below:");
-        System.out.println("ADD\n SUBTRACT\n MULTIPLY\n DIVIDE");
+        String userSelection;
 
-        String userSelection = optionScanner.nextLine().toUpperCase();
+        // Requests first integer for function
+        System.out.println("Please enter a number");
+        int num = numScanner.nextInt();
+        sessionSum += num;
         
-        // Checks if the calculator function is one which requires two inputs.
-        if ((userSelection.equals("ADD")) || (userSelection.equals("SUBTRACT")) || (userSelection.equals("MULTIPLY")) || (userSelection.equals("DIVIDE")))
+        while (running)
         {
-            // Requests first integer for function
-            System.out.println("Please enter the first number to "+userSelection);
-            int num1 = optionScanner.nextInt();
-            
-            // Requests second integer for function
-            System.out.println("Please enter the second number to "+userSelection);
-            int num2 = optionScanner.nextInt();
-            
-            // Performs (via doAdd function), prints and returns addition of the two numbers
-            if (userSelection.equals("ADD"))
+            userSelection = null;
+            System.out.println("Please TYPE a Calculator Function from the list below:");
+            System.out.println(" ADD \n SUBTRACT \n MULTIPLY \n DIVIDE \n TOTAL");
+            while (userSelection == null)
             {
-                output = calculator.doAdd(num1,num2);
-                System.out.println(num1 + " + " + num2 + " = "+output);
+                userSelection = optionScanner.nextLine().toUpperCase();
+            }            
+            
+            while (!userSelection.equals("ADD") && !userSelection.equals("SUBTRACT") && !userSelection.equals("MULTIPLY") && !userSelection.equals("DIVIDE")  && !userSelection.equals("TOTAL"))
+            {
+                System.out.println("Incorrect Input. Did not recognise '"+userSelection+"' as a valid option.");
+                System.out.println("Please TYPE a Calculator Function from the list below:");
+                System.out.println(" ADD \n SUBTRACT \n MULTIPLY \n DIVIDE \n TOTAL ");
+                userSelection = optionScanner.nextLine().toUpperCase();
+            }
+
+            if (userSelection.equals("TOTAL"))
+            {
+                System.out.println("Total = "+sessionSum);
+                System.out.printf("Total (3dp) = %.3f%n", sessionSum);
+                running = !running;
             }
             
-            // Performs (via doSubtract function), prints and returns subtraction of the two numbers
-            else if (userSelection.equals("SUBTRACT"))
+            // Requests integer for function
+            if (running)
             {
-                output = calculator.doSubtract(num1,num2);
-                System.out.println(num1 + " - " + num2 + " = "+output);
+                System.out.println("Please enter a number");
+                num = numScanner.nextInt();
+            
+            
+                if (userSelection.equals("ADD"))
+                {
+                    sessionSum = calculator.doAdd(sessionSum,num);
+                }
+                else if (userSelection.equals("SUBTRACT"))
+                {
+                    sessionSum = calculator.doSubtract(sessionSum,num);
+                }
+                else if (userSelection.equals("MULTIPLY"))
+                {
+                    sessionSum = calculator.doMultiply(sessionSum,num);
+                }
+                else if (userSelection.equals("DIVIDE"))
+                {
+                    sessionSum = calculator.doDivide(sessionSum,num);
+                }
+                else
+                {
+                    System.out.println("Unexpected Error.");
+                    running = false;
+                }
             }
             
-            // Performs (via doMultiply function), prints and returns multiplication of the two numbers
-            else if (userSelection.equals("MULTIPLY"))
-            {
-                output = calculator.doMultiply(num1,num2);
-                System.out.println(num1 + " * " + num2 + " = "+output);
-            }
-            
-            // Performs (via doDivide function), prints and returns division of the two numbers
-            else if (userSelection.equals("DIVIDE"))
-            {
-                System.out.println(num1 + " / " + num2 + " = "+output);
-            }
         }
-        return output;
+        optionScanner.close();
+        numScanner.close();
     }
     
     // Adds num1 and num2 together
-    public static int doAdd(int num1, int num2)
+    public static double doAdd(double runningTotal, int inpNum)
     {
-        return num1+num2;
+        return runningTotal+inpNum;
     }
     
     // Subtracts num2 from num1
-    public static int doSubtract(int num1, int num2)
+    public static double doSubtract(double runningTotal, int inpNum)
     {
-        return num1-num2;
+        return runningTotal-inpNum;
     }
     
     // Multiplies num1 with num2
-    public static int doMultiply(int num1, int num2)
+    public static double doMultiply(double runningTotal, int inpNum)
     {
-        return num1*num2;
+        return runningTotal*inpNum;
     }
     
     // Divides num1 by num2
-    public static int doDivide(int num1, int num2)
+    public static double doDivide(double runningTotal, int inpNum)
     {
-        return num1/num2;
+        return runningTotal/inpNum;
     }
     
     // Prints out what the program is for, in case printed directly.
