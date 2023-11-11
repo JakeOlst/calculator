@@ -4,6 +4,8 @@
  */
 package com.jakeolst.projects.calculator;
 
+import java.util.Scanner;
+
 /**
  * @author jakeolst
  */
@@ -11,13 +13,10 @@ public class Main
 {
     public static void main(String[] args) 
     {
+        // Create the singleton instance of the calculator
         Calculator calculator = Calculator.getCalculator();
-        System.out.println(calculator);
         
-        System.out.println(calculator.doAdd(1,2));
-        System.out.println(calculator.doSubtract(2,1));
-        System.out.println(calculator.doMultiply(10,5));
-        System.out.println(calculator.doDivide(10,5));
-        
+        // Begin the calculator
+        calculator.start();     
     }
 }

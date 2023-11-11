@@ -4,44 +4,42 @@
  */
 package com.jakeolst.projects.calculator;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  *
  * @author jarke
  */
-public class CalculatorTest {
-    
-    public CalculatorTest() {
-    }
+public class CalculatorTest 
+{
 
-    @org.junit.jupiter.api.BeforeAll
+    @BeforeAll
     public static void setUpClass() throws Exception {
     }
 
-    @org.junit.jupiter.api.AfterAll
+    @AfterAll
     public static void tearDownClass() throws Exception {
     }
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     public void setUp() throws Exception {
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     public void tearDown() throws Exception {
     }
     
-
     /**
      * Test of getCalculator method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testGetCalculator() {
+    public void testGetCalculator() 
+    {
         System.out.println("getCalculator");
         Calculator expResult = Calculator.getCalculator();
         Calculator result = Calculator.getCalculator();
@@ -54,7 +52,8 @@ public class CalculatorTest {
      * Test of doAdd method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testDoAdd() {
+    public void testDoAdd() 
+    {
         System.out.println("doAdd");
         int num1 = 10;
         int num2 = 5;
@@ -69,7 +68,8 @@ public class CalculatorTest {
      * Test of doSubtract method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testDoSubtract() {
+    public void testDoSubtract() 
+    {
         System.out.println("doSubtract");
         int num1 = 10;
         int num2 = 5;
@@ -84,7 +84,8 @@ public class CalculatorTest {
      * Test of doMultiply method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testDoMultiply() {
+    public void testDoMultiply() 
+    {
         System.out.println("doMultiply");
         int num1 = 10;
         int num2 = 5;
@@ -99,7 +100,8 @@ public class CalculatorTest {
      * Test of doDivide method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testDoDivide() {
+    public void testDoDivide() 
+    {
         System.out.println("doDivide");
         int num1 = 10;
         int num2 = 5;
@@ -114,7 +116,8 @@ public class CalculatorTest {
      * Test of toString method, of class Calculator.
      */
     @org.junit.jupiter.api.Test
-    public void testToString() {
+    public void testToString() 
+    {
         System.out.println("toString");
         Calculator instance = Calculator.getCalculator();
         String expResult = "This is a Calculator.";
