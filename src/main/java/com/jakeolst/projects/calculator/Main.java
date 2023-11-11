@@ -13,5 +13,11 @@ public class Main
     {
         Calculator calculator = Calculator.getCalculator();
         System.out.println(calculator);
+        
+        System.out.println(calculator.doAdd(1,2));
+        System.out.println(calculator.doSubtract(2,1));
+        System.out.println(calculator.doMultiply(10,5));
+        System.out.println(calculator.doDivide(10,5));
+        
     }
 }

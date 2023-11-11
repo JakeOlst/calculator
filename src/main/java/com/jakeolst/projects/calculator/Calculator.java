@@ -29,13 +29,30 @@ class Calculator
         return calculator;
     }
     
+    public static int doAdd(int num1, int num2)
+    {
+        return num1+num2;
+    }
+    
+    public static int doSubtract(int num1, int num2)
+    {
+        return num1-num2;
+    }
+    
+    public static int doMultiply(int num1, int num2)
+    {
+        return num1*num2;
+    }
+    
+    public static int doDivide(int num1, int num2)
+    {
+        return num1/num2;
+    }
+    
     @Override
     public String toString()
     {
         return "This is a Calculator.";
     }
     
-    public static void main(String[] args) 
-    {
-    }
 }
