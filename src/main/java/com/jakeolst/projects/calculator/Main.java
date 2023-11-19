@@ -15,8 +15,10 @@ public class Main
     {
         // Create the singleton instance of the calculator
         Calculator calculator = Calculator.getCalculator();
-        
+                
         // Begin the calculator
         calculator.start();     
+        
+        
     }
 }

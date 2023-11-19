@@ -58,7 +58,7 @@ public class CalculatorTest
         int num1 = 10;
         int num2 = 5;
         int expResult = 15;
-        int result = Calculator.doAdd(num1, num2);
+        double result = Calculator.doAdd(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -74,7 +74,7 @@ public class CalculatorTest
         int num1 = 10;
         int num2 = 5;
         int expResult = 5;
-        int result = Calculator.doSubtract(num1, num2);
+        double result = Calculator.doSubtract(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -90,7 +90,7 @@ public class CalculatorTest
         int num1 = 10;
         int num2 = 5;
         int expResult = 50;
-        int result = Calculator.doMultiply(num1, num2);
+        double result = Calculator.doMultiply(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -106,7 +106,7 @@ public class CalculatorTest
         int num1 = 10;
         int num2 = 5;
         int expResult = 2;
-        int result = Calculator.doDivide(num1, num2);
+        double result = Calculator.doDivide(num1, num2);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

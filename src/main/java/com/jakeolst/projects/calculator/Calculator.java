@@ -15,6 +15,7 @@ class Calculator
     // Static reference of Calculator - allows only one to be used.
     private static Calculator calculator;
     private String calcOptions = (" ADD \n SUBTRACT \n MULTIPLY \n DIVIDE");
+    private static calculatorGUI calculatorUserInterface = new calculatorGUI();
     
     // private constructor - 'lazy implementation' to prevent instantiation from outside of class (true singleton).
     private Calculator()
@@ -100,6 +101,7 @@ class Calculator
                     System.out.println("Unexpected Error.");
                     running = false;
                 }
+                System.out.println("Subtotal: "+sessionSum);
             }
             
         }
